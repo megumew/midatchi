@@ -4,6 +4,11 @@
 #include <algorithm>
 #include "Pet.h"
 #include <string>
+#include <ctime>
+
+struct tm newtime;
+__time32_t aclock;
+
 
 MidatchiWinEngine::MidatchiWinEngine() {
 	statusHunger = "~";
@@ -73,10 +78,11 @@ Pet MidatchiWinEngine::PetCreation() {
     Clear();
 
     Pet pet(name);
-    std::cout << "Pet successfully created with name " << pet.GetName() << " " << pet.GetPetEyes() << std::endl;
+    std::cout << "Pet successfully created with name " << pet.GetName() << "." << std::endl;
     std::cout << "Press Enter to Continue" << std::endl;
     std::cin.ignore();
     std::cin.get();
+    Clear();
 
     return pet;
 
@@ -84,10 +90,39 @@ Pet MidatchiWinEngine::PetCreation() {
 
 
 void MidatchiWinEngine::Play(Pet pet) {
+    bool running = true;
+    std::string curTime;
+    std::string lastTime;
+
+    while (running) {
+        lastTime = curTime;
+        curTime = getTime();
+
+        if (lastTime != curTime) {
+            Clear();
+            std::cout << pet.GetName() + ":\t" + statusHunger + " " + statusFun + " " + status3 + "\n\t" + "\n\t" + pet.GetPet() + "\n" << curTime << std::endl;
+        }
+
+
+    }
+
 
 }
 
+std::string MidatchiWinEngine::getTime() {
 
+    char buffer[32];
+    errno_t errNum;
+    _time32(&aclock);   // Get time in seconds.
+    _localtime32_s(&newtime, &aclock);   // Convert time to struct tm form
+
+    errNum = asctime_s(buffer, 32, &newtime);
+    if (errNum)
+    {
+        return "error";
+    }
+    return buffer;
+}
 
 void MidatchiWinEngine::Clear() {
     COORD topLeft = { 0, 0 };

@@ -11,6 +11,7 @@ public:
 	void Menu();
 	Pet PetCreation();
 	void Play(Pet pet);
+	std::string getTime();
 private:
 	std::string statusHunger;
 	std::string statusFun;

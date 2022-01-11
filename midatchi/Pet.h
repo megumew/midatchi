@@ -5,12 +5,12 @@ class Pet
 public:
 	Pet(std::string name);
 	std::string GetName();
-	std::string GetPetEyes();
-	std::string GetPetBlink();
+	std::string GetPet();
 	void SetName(std::string);
 private:
 	std::string name;
 	std::string petEyes;
 	std::string petBlink;
+	bool blinking;
 };
 

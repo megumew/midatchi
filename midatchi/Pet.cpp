@@ -11,20 +11,23 @@ Pet::Pet(std::string name)
 {
 	petEyes = "(o w o)";
 	petBlink = "(- w -)";
+	blinking = false;
 }
 
 std::string Pet::GetName() {
 	return name;
 }
 
-std::string Pet::GetPetEyes() {
-	return petEyes;
+std::string Pet::GetPet() {
+	if (blinking) {
+		blinking = !blinking;
+		return petBlink;
+	}
+	else {
+		blinking = !blinking;
+		return petEyes;
+	}
 }
-
-std::string Pet::GetPetBlink() {
-	return petBlink;
-}
-
 void Pet::SetName(std::string newName) {
 	name = newName;
 }
