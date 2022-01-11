@@ -2,7 +2,9 @@
 #include <windows.h>
 #include <algorithm>
 #include "Pet.h"
+#include <string>
 
+void welcome();
 void clear();
 void menu();
 std::string petCreation();
@@ -10,7 +12,7 @@ std::string petCreation();
 
 int main()
 {
-
+    welcome();
     menu();
     Pet pet(petCreation());
 
@@ -18,9 +20,39 @@ int main()
 }
 
 
-void menu() {
+void welcome() {
     std::cout << "WELCOME TO MIDATCHI!\n~~~~~~~~~~~~~~~~~~~\npress ENTER to play";
     std::cin.ignore();
+    clear();
+}
+
+void menu() {
+    std::cout << "///MIDATCHI///MIDATCHI///MIDATCHI///MIDATCHI///MIDATCHI///\n1\tPLAY\n2\tGALLERY\n3\tSETTINGS\n4\tSAVES\n5\tQUIT" << std::endl;
+
+    std::string choice;
+
+    bool onMenu = true;
+
+    while (onMenu) {
+        std::cin >> choice;
+        int c = std::stoi(choice);
+        if (c != NULL) {
+            switch (c) {
+            case 1:
+                onMenu = false;
+                break;
+            case 5:
+                exit(0);
+            default:
+                std::cout << "Under Construction";
+            }
+        }
+
+    }
+
+
+
+
     clear();
 }
 
@@ -39,7 +71,7 @@ std::string petCreation() {
             std::cout << "Are you sure you want your pet to be named " << name << "? [ (y)es / (n)o ]" << std::endl;
             std::cin >> yesNo;
             std::transform(yesNo.begin(), yesNo.end(), yesNo.begin(), ::tolower);
-            if (yesNo == "yes" || yesNo == "y") {
+            if (yesNo[0] == 'y') {
                 naming = false;
                 needConfirm = false;
             }
