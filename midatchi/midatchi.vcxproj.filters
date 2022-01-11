@@ -21,9 +21,15 @@
     <ClCompile Include="Pet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MidatchiWinEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MidatchiWinEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
