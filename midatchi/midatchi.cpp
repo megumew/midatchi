@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <algorithm>
+#include "Pet.h"
 
 void clear();
 void menu();
@@ -11,7 +12,9 @@ int main()
 {
 
     menu();
-    petCreation();
+    Pet pet(petCreation());
+
+    std::cout << "Pet successfully created with name " << pet.GetName() << std::endl;
 }
 
 
@@ -33,7 +36,7 @@ std::string petCreation() {
         std::cin >> name;
         needConfirm = true;
         while (needConfirm) {
-            std::cout << "Are you sure you want your pet to be named " << name << "? ['(y)es' / '(n)o']" << std::endl;
+            std::cout << "Are you sure you want your pet to be named " << name << "? [ (y)es / (n)o ]" << std::endl;
             std::cin >> yesNo;
             std::transform(yesNo.begin(), yesNo.end(), yesNo.begin(), ::tolower);
             if (yesNo == "yes" || yesNo == "y") {
