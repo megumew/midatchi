@@ -37,10 +37,19 @@ void MidatchiWinEngine::Menu() {
             case 1:
                 onMenu = false;
                 break;
+            case 2:
+                std::cout << "Under Construction!" << std::endl;
+                break;
+            case 3:
+                std::cout << "Under Construction!" << std::endl;
+                break;
+            case 4:
+                std::cout << "Under Construction!" << std::endl;
+                break;
             case 5:
                 exit(0);
             default:
-                std::cout << "Under Construction";
+                std::cout << "Please enter a valid response." << std::endl;
             }
         }
 
